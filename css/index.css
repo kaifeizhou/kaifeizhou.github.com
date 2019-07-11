@@ -19,10 +19,15 @@ body .info-left img {
   width: 100%;
 }
 body .info-right {
+  padding-top: 30px;
   float: right;
   width: 50%;
   font-size: 16px;
   color: aqua;
   text-indent: 32px;
   line-height: 40px;
+}
+body .info-right img {
+  width: 100px;
+  float: left;
 }
