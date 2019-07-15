@@ -8,7 +8,7 @@
 
     header {
 
-      .w{
+      .w {
         position: relative;
       }
 
@@ -60,13 +60,26 @@
         }
       }
 
+      /* 标题部分 */
+
+      .title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        img {
+          width: 100px;
+        }
+      }
+
       /* logo部分 */
       #my_logo {
         position: absolute;
-        left: 250px;
-        top: -20px;
-        width: 146px;
-        height: 85px;
+        left: 300px;
+        top: -50px;
+        width: 300px;
+
 
         img {
           width: 100%;
@@ -75,7 +88,7 @@
       }
 
       /* 视频 */
-      .myVideo{
+      .myVideo {
         width: 690px;
         height: 200px;
         margin: 60px auto 0;
@@ -83,12 +96,38 @@
         border: 4px solid #fff;
         border-radius: 20px;
         overflow: hidden;
-        video{
+
+        video {
           margin-top: -120px;
           width: 100%;
         }
       }
 
+    }
+
+    main {
+      .nav {
+        ul {
+          width: 690px;
+          padding: 0;
+          margin: 10px auto;
+          display: flex;
+          list-style: none;
+        }
+
+        li {
+          box-sizing: border-box;
+      height: 40px;
+          flex: 1;
+          float: left;
+  
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
     }
 
   }
