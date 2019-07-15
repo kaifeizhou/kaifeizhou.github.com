@@ -1,33 +1,92 @@
-body {
-  width: 100%;
-  height: 100%;
-  background: url(../images/plbg.jpg) no-repeat;
-  background-attachment: fixed;
-  overflow: hidden;
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media screen and (min-width: 1200px) {
+  body {
+    background-image: url(../images/kino_bkg_beige.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #EFEEE7;
+  }
+  body header {
+    /* 四个颜色小方块 */
+    /* logo部分 */
+    /* 视频 */
+  }
+  body header .w {
+    position: relative;
+  }
+  body header .colorBg {
+    margin-left: 120px;
+  }
+  body header .colorBg a {
+    float: left;
+    box-sizing: border-box;
+    margin-right: 2px;
+    padding: 5px 3px 3px 2px;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+  }
+  body header .colorBg a:nth-of-type(1) span {
+    background-color: #ddebea;
+  }
+  body header .colorBg a:nth-of-type(2) span {
+    background-color: #ecf1df;
+  }
+  body header .colorBg a:nth-of-type(3) span {
+    background-color: #f9e8d2;
+  }
+  body header .colorBg a:nth-of-type(4) span {
+    background-color: #efeee7;
+  }
+  body header .colorBg a span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-shadow: 1px 1px 1px #000;
+  }
+  body header #my_logo {
+    position: absolute;
+    left: 250px;
+    top: -20px;
+    width: 146px;
+    height: 85px;
+  }
+  body header #my_logo img {
+    width: 100%;
+  }
+  body header .myVideo {
+    width: 690px;
+    height: 200px;
+    margin: 60px auto 0;
+    box-sizing: border-box;
+    border: 4px solid #fff;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  body header .myVideo video {
+    margin-top: -120px;
+    width: 100%;
+  }
 }
-body h1 {
-  font-weight: 200;
-  color: goldenrod;
-  font-size: 48px;
-  text-align: center;
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media screen and (max-width: 1200px) {
+  body {
+    background-color: red;
+  }
 }
-body .info-left {
-  float: left;
-  width: 50%;
+/* 小屏幕（平板，大于等于 768px） */
+@media screen and (max-width: 992px) {
+  body {
+    background-color: green;
+  }
 }
-body .info-left img {
-  width: 100%;
+/* 超小屏幕（手机，小于 768px） */
+@media screen and (max-width: 768px) {
+  body {
+    background-color: blue;
+  }
 }
-body .info-right {
-  padding-top: 30px;
-  float: right;
-  width: 50%;
-  font-size: 16px;
-  color: aqua;
-  text-indent: 32px;
-  line-height: 40px;
-}
-body .info-right img {
-  width: 100px;
-  float: left;
+.w {
+  width: 768px;
+  margin: 0 auto;
 }
