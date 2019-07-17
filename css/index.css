@@ -63,8 +63,19 @@ body header #my_title {
   height: 118px;
   overflow: hidden;
 }
-body header #my_title img {
+body header #my_title .no-swiper-container {
   width: 100%;
+}
+body header #my_title .no-swiper-container .no-swiper-wrapper {
+  position: relative;
+  width: 1200%;
+}
+body header #my_title .no-swiper-container .no-swiper-wrapper .no-swiper-slide {
+  float: left;
+  height: 118px;
+}
+body header #my_title img {
+  width: 300px;
 }
 body main {
   /* 控制MD文档样式 */
@@ -81,7 +92,7 @@ body main .nav ul {
 body main .nav li {
   position: relative;
   height: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   float: left;
 }
 body main .nav li.active span {
