@@ -11,14 +11,8 @@
   <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/index.css">
   <script src="./js/jquery-1.12.4.min.js"></script>
-
   <script src='./bootstrap-3.3.7-dist/js/bootstrap.js'></script>
 
-  <!-- swiper文件 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.esm.js"></script> -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.esm.bundle.js"></script> -->
   <script src="//cdn.bootcss.com/markdown-it/4.4.0/markdown-it.min.js"></script>
   <script src="./js/index.js"></script>
   <style>
@@ -38,11 +32,9 @@
           data-color=' rgb(255, 237, 213)'><span></span></a>
         <a href="javascript:;" data-src='./images/kino_bkg_beige.jpg' data-color='#EFEEE7'><span></span></a>
       </div>
-      <!--   <div class="title">
-        <img src="./images/wdgr.png" alt="" srcset="">
-      </div> -->
-      <h1 id='my_title'>
 
+
+      <h1 id='my_title'>
 
         <div class="swiper-container" id="swiper2">
           <div class="swiper-wrapper">
@@ -55,64 +47,44 @@
             <div class="swiper-slide"> <img src="./images/zkfgrzy6.png" alt="" srcset=""></div>
             <div class="swiper-slide"> <img src="./images/zkfgrzy4.png" alt="" srcset=""></div>
             <div class="swiper-slide"> <img src="./images/zkfgrzy3.png" alt="" srcset=""></div>
-
           </div>
         </div>
-
-
-
-
-
       </h1>
     </div>
-    <div class="myVideo">
 
-      <!-- swiper -->
-      <div class="swiper-container" id="swiper1">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="./images/1.JPG" alt="" srcset=""></div>
-          <div class="swiper-slide"><img src="./images/2.JPG" alt="" srcset=""></div>
-          <div class="swiper-slide"><img src="./images/3.JPG" alt="" srcset=""></div>
-          <div class="swiper-slide"><img src="./images/4.JPG" alt="" srcset=""></div>
-          <div class="swiper-slide"><img src="./images/5.JPG" alt="" srcset=""></div>
-        </div>
-        <!-- 如果需要分页器 -->
-        <div class="swiper-pagination"></div>
-
-        <!-- 如果需要导航按钮 -->
-        <div class="swiper-button-prev swiper-button-hidden"></div>
-        <div class="swiper-button-next swiper-button-hidden"></div>
-
-      </div>
-    </div>
   </header>
 
   <main>
     <div class="w">
-      <div class="nav">
-        <ul>
-          <li class="active"><a href="#"> <img src="./images/html.png" alt="" srcset=""></a> <span></span> </li>
-          <li><a href="#"><img src="./images/css.png" alt="" srcset=""></a><span></span></li>
-          <li><a href="#"><img src="./images/js.png" alt="" srcset=""></a><span></span></li>
-          <li><a href="#"><img src="./images/jq.png" alt="" srcset=""></a><span></span></li>
-          <li><a href="#"><img src="./images/ajax.png" alt="" srcset=""></a><span></span></li>
+      <div class="nav ">
+        <ul class="row">
+          <li class="active col-md-2 col-sm-4 col-xs-6"><a href="#"> <img src="./images/html.png" alt="" srcset=""></a>
+            <span></span> </li>
+          <li class="col-md-2 col-sm-4 col-xs-6"><a href="#"><img src="./images/css.png" alt=""
+                srcset=""></a><span></span></li>
+          <li class="col-md-2 col-sm-4 col-xs-6"><a href="#"><img src="./images/js.png" alt=""
+                srcset=""></a><span></span></li>
+          <li class="col-md-2 col-sm-4 col-xs-6"><a href="#"><img src="./images/jq.png" alt=""
+                srcset=""></a><span></span></li>
+          <li class="col-md-2 col-sm-4 col-xs-6"><a href="#"><img src="./images/ajax.png" alt=""
+                srcset=""></a><span></span></li>
         </ul>
       </div>
       <div class="content">
         <ul class='content-html'>
           <li>
-           html 基础
+            html 基础
           </li>
         </ul>
-        <ul style="display: none" class='content-day content-css'>
-          <li class="">第1天 <span></span> </li>
+        <ul style="display: none" class='content-day content-css row'>
+          <li>第1天 <span></span> </li>
           <li>第2天 <span></span> </li>
           <li>第3天 <span></span> </li>
           <li>第4天 <span></span> </li>
           <li>第5天 <span></span> </li>
           <li>第6天 <span></span> </li>
           <li>第7天 <span></span> </li>
-         
+
         </ul>
         <ul style="display: none" class='content-day content-js'>
           <li>第1天</li>
@@ -147,10 +119,19 @@
           <li>第8天</li>
           <li>第9天</li>
         </ul>
-           
-      </div>
-      <div class="content-show-md">
 
+      </div>
+
+    </div>
+
+    </div>
+
+    <div class="container">
+
+      <div class="row content-md">
+        <div class="col-lg-3 col-md-2 col-sm-1 col-xs-12"></div>
+        <div class="content-show-md col-lg-8 col-md-8 col-sm-10 col-xs-12">
+        </div>
       </div>
     </div>
 

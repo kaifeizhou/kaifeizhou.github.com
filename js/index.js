@@ -11,37 +11,7 @@
 
     /* 点击更换背景图片-end */
 
-    /* 标题的swiper-start */
-    var mySwiper1 = new Swiper('#swiper2', {
-      autoplay: true,
-      speed: 1000,
-      direction: 'vertical',
-      loop: true, // 循环模式选项
 
-    })
-    /* swiper-end */
-
-
-    /* 轮播图的swiper-start */
-    var mySwiper1 = new Swiper('#swiper1', {
-      autoplay: true,
-      speed: 300,
-      loop: true, // 循环模式选项
-
-      // 如果需要分页器
-      pagination: {
-        el: '.swiper-pagination',
-      },
-
-      // 如果需要前进后退按钮
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        hideOnClick: true,
-      },
-
-    })
-    /* swiper-end */
 
     /* 导航栏按钮注册点击事件 */
     $('.nav li').click(function () {
