@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/otherReset.css">
+  <style>
+    /* 大于768px规格的屏幕 */
+    @media screen and (min-width:768px) {
+      body {
+        width: 100%;
+        background-image: url("./images/kino_bkg_blue.jpg");
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-color: #DDEBEA;
+        line-height: 1.5;
+
+
+
+      }
+
+      .content-show-md {
+        width: 70%;
+        margin: 120px auto 0;
+      }
+
+      .content-show-md pre {
+        white-space: normal;
+      }
+
+      .content-show-md img {
+        width: 80%;
+      }
+
+      .top {
+        position: fixed;
+        right: 10%;
+        bottom: 4%;
+
+      }
+
+      .top h3 {
+        width: 150px;
+        height: 150px;
+        color: #666;
+        text-shadow:  1px 1px 3px #000;
+        text-align: center;
+        background: url("./images/火箭.png") no-repeat center;
+        background-size: contain;
+        cursor: pointer;
+        /* animation: name duration timing-function delay alternate direction fill-mode; */
+      }
+    }
+
+    @media screen and (max-width:768px) {
+      body {
+        width: 100%;
+        background-repeat: no-repeat;
+        background-color: #DDEBEA;
+        line-height: 1.1;
+        font-size: 10px;
+      }
+
+      .content-show-md {
+        width: 98%;
+        margin: 10px auto 0;
+      }
+
+      .content-show-md pre {
+        white-space: normal;
+      }
+
+      .content-show-md img {
+        width: 90%;
+      }
+    }
+
+   
+  </style>
+  <title>HTMl基础知识</title>
+</head>
+
+<body>
+
+  <div class="content-show-md ">
+  </div>
+  <div class="top">
+    <h3>TOP</h3>
+  </div>
+  <script src="./js/jquery-1.12.4.min.js"></script>
+  <script src="./js/markdown-it.min.js"></script>
+  <script>
+    $('.top h3').click(function () {
+
+      $('html').animate({
+        scrollTop: 0,
+      })
+    })
+    $.get('./md/01-html/html.md', function (text) {
+      /*  document.write(markdownit().render(text)); */
+      $(' .content-show-md').html(
+        markdownit().render(text)
+      )
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/otherReset.css">
+  <style>
+    /* 大于768px规格的屏幕 */
+    @media screen and (min-width:768px) {
+
+      h3,
+      h4 {
+        font-weight: 200 !important;
+      }
+
+      body {
+        width: 100%;
+        background-image: url("./images/kino_bkg_green.jpg");
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-color: rgb(236, 241, 223);
+        line-height: 1.5;
+
+      }
+
+      .content-show-md {
+        width: 70%;
+        margin: 120px auto 0;
+      }
+
+      .content-show-md pre {
+        white-space: normal;
+      }
+
+      .content-show-md img {
+        width: 80%;
+      }
+
+      .top {
+        position: fixed;
+        right: 10%;
+        bottom: 4%;
+
+      }
+
+      .top h3 {
+        width: 150px;
+        height: 150px;
+        color: #666;
+        text-shadow: 1px 1px 3px #000;
+        text-align: center;
+        background: url("./images/火箭.png") no-repeat center;
+        background-size: contain;
+        cursor: pointer;
+        /* animation: name duration timing-function delay alternate direction fill-mode; */
+      }
+    }
+
+    @media screen and (max-width:768px) {
+
+      h3,
+      h4 {
+        font-weight: 200 !important;
+      }
+
+      body {
+        width: 100%;
+        background-repeat: no-repeat;
+        background-color: rgb(236, 241, 223);
+        line-height: 1.1;
+        font-size: 10px;
+      }
+
+      .content-show-md {
+        width: 98%;
+        margin: 10px auto 0;
+      }
+
+      .content-show-md pre {
+        white-space: normal;
+      }
+
+      .content-show-md img {
+        width: 90%;
+      }
+    }
+  </style>
+  <title>jQuery基础</title>
+</head>
+
+<body>
+
+    <div class="content-show-md ">
+        <h2 style="text-align: center;"><a name="_Toc256000000"></a>jQuery</h2>
+        <p>&nbsp;</p>
+        <ol>
+        <li><a href="#_Toc256000002"> jQuery选择器........................................................................................................ 5</a></li>
+        </ol>
+        <p><a href="#_Toc256000003">1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 基本选择器..................................................................................................... 5</a></p>
+        <p><a href="#_Toc256000004">1.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ID选择器................................................................................................. 5</a></p>
+        <p><a href="#_Toc256000005">1.1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 类选择器.................................................................................................. 5</a></p>
+        <p><a href="#_Toc256000006">1.1.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 标签选择器.............................................................................................. 5</a></p>
+        <p><a href="#_Toc256000007">1.1.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 并集选择器.............................................................................................. 5</a></p>
+        <p><a href="#_Toc256000008">1.1.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 交集选择器.............................................................................................. 5</a></p>
+        <p><a href="#_Toc256000009">1.1.6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 总结:跟CSS的选择器用法一样............................................................. 5</a></p>
+        <p><a href="#_Toc256000010">1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 层级选择器..................................................................................................... 5</a></p>
+        <p><a href="#_Toc256000011">1.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 子代选择器.............................................................................................. 5</a></p>
+        <p><a href="#_Toc256000012">1.2.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 后代选择器.............................................................................................. 5</a></p>
+        <p><a href="#_Toc256000013">1.2.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 总结:跟CSS选择器一样......................................................................... 5</a></p>
+        <p><a href="#_Toc256000014">1.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 过滤选择器..................................................................................................... 6</a></p>
+        <p><a href="#_Toc256000015">1.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :eq(index)................................................................................................. 6</a></p>
+        <p><a href="#_Toc256000016">1.3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :odd.......................................................................................................... 6</a></p>
+        <p><a href="#_Toc256000017">1.3.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :even......................................................................................................... 6</a></p>
+        <p><a href="#_Toc256000018">1.3.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 总结:这类选择器都带冒号..................................................................... 6</a></p>
+        <p><a href="#_Toc256000019">1.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 筛选选择器(方法)........................................................................................... 6</a></p>
+        <p><a href="#_Toc256000020">1.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; children(selector)..................................................................................... 6</a></p>
+        <p><a href="#_Toc256000021">1.4.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find(selector)............................................................................................ 6</a></p>
+        <p><a href="#_Toc256000022">1.4.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; siblings(selector)...................................................................................... 6</a></p>
+        <p><a href="#_Toc256000023">1.4.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parent().................................................................................................... 6</a></p>
+        <p><a href="#_Toc256000024">1.4.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parents(selector)...................................................................................... 7</a></p>
+        <p><a href="#_Toc256000025">1.4.6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eq(index).................................................................................................. 7</a></p>
+        <p><a href="#_Toc256000026">1.4.7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; next()........................................................................................................ 7</a></p>
+        <p><a href="#_Toc256000027">1.4.8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nextAll().................................................................................................... 7</a></p>
+        <p><a href="#_Toc256000028">1.4.9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prev()........................................................................................................ 7</a></p>
+        <p><a href="#_Toc256000029">1.4.10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prevAll()................................................................................................ 7</a></p>
+        <ol start="2">
+        <li><a href="#_Toc256000030"> 元素设置................................................................................................................ 7</a></li>
+        </ol>
+        <p><a href="#_Toc256000031">2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 样式设置......................................................................................................... 7</a></p>
+        <p><a href="#_Toc256000032">2.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 设置一个样式.......................................................................................... 8</a></p>
+        <p><a href="#_Toc256000033">2.1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 设置多个样.............................................................................................. 8</a></p>
+        <p><a href="#_Toc256000034">2.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 类名设置......................................................................................................... 8</a></p>
+        <p><a href="#_Toc256000035">2.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加一个类.............................................................................................. 8</a></p>
+        <p><a href="#_Toc256000036">2.2.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 删除一个类.............................................................................................. 8</a></p>
+        <p><a href="#_Toc256000037">2.2.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 切换一个类.............................................................................................. 8</a></p>
+        <p><a href="#_Toc256000038">2.2.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .匹配一个类 &nbsp;判断是否包含某个类&nbsp; 如果包含返回true否知返回false&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8</a></p>
+        <p><a href="#_Toc256000039">2.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 属性设置......................................................................................................... 8</a></p>
+        <p><a href="#_Toc256000040">2.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 获取属性.................................................................................................. 8</a></p>
+        <p><a href="#_Toc256000041">2.3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 设置属性.................................................................................................. 8</a></p>
+        <p><a href="#_Toc256000042">2.3.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 设置多个属性.......................................................................................... 8</a></p>
+        <p><a href="#_Toc256000043">2.3.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 删除属性.................................................................................................. 9</a></p>
+        <p><a href="#_Toc256000044">2.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prop方法........................................................................................................ 9</a></p>
+        <p><a href="#_Toc256000045">2.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 对于布尔类型的属性，不要attr方法，应该用prop方法 prop用法跟attr方法一样。................................................................................................ 9</a></p>
+        <ol start="3">
+        <li><a href="#_Toc256000046"> 动画........................................................................................................................ 9</a></li>
+        </ol>
+        <p><a href="#_Toc256000047">3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 基本动画......................................................................................................... 9</a></p>
+        <p><a href="#_Toc256000048">3.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 展示动画.................................................................................................. 9</a></p>
+        <p><a href="#_Toc256000049">3.1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 隐藏动画.................................................................................................. 9</a></p>
+        <p><a href="#_Toc256000050">3.1.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 切换展示和隐藏...................................................................................... 9</a></p>
+        <p><a href="#_Toc256000051">3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 滑入滑出....................................................................................................... 10</a></p>
+        <p><a href="#_Toc256000052">3.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 滑入动画................................................................................................ 10</a></p>
+        <p><a href="#_Toc256000053">3.2.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 滑出动画................................................................................................ 10</a></p>
+        <p><a href="#_Toc256000054">3.2.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 切换滑入滑出........................................................................................ 10</a></p>
+        <p><a href="#_Toc256000055">3.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 淡入淡出....................................................................................................... 10</a></p>
+        <p><a href="#_Toc256000056">3.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 淡入动画................................................................................................ 10</a></p>
+        <p><a href="#_Toc256000057">3.3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 淡出动画................................................................................................ 10</a></p>
+        <p><a href="#_Toc256000058">3.3.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 切换淡入淡出........................................................................................ 10</a></p>
+        <p><a href="#_Toc256000059">3.3.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 淡入到.................................................................................................... 10</a></p>
+        <p><a href="#_Toc256000060">3.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 自定义动画................................................................................................... 10</a></p>
+        <p><a href="#_Toc256000061">3.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /*&nbsp;&nbsp;&nbsp;&nbsp; * 自定义动画&nbsp;&nbsp;&nbsp;&nbsp; * 参数1：需要做动画的属性&nbsp;&nbsp;&nbsp;&nbsp; * 参数2：需要执行动画的总时长&nbsp;&nbsp;&nbsp;&nbsp; * 参数3：执行动画的时候的速度&nbsp;&nbsp;&nbsp;&nbsp; * 参数4：执行动画完成之后的回调函数&nbsp;&nbsp;&nbsp;&nbsp; * */...................................... 10</a></p>
+        <p><a href="#_Toc256000062">3.4.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $('#box3').animate({left:800},5000,'swing',function () {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log('动画执行完成');&nbsp;&nbsp;&nbsp;&nbsp; });............................................ 11</a></p>
+        <p><a href="#_Toc256000063">3.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 动画队列....................................................................................................... 11</a></p>
+        <p><a href="#_Toc256000064">3.5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jQuery中有个动画队列的机制。&nbsp;&nbsp;&nbsp;&nbsp; 当我们对一个对象添加多次动画效果时后添加的动作就会被放入这个动画队列中，&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 等前面的动画完成后再开始执行。&nbsp;&nbsp;&nbsp;&nbsp; 可是用户的操作往往都比动画快，&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 如果用户对一个对象频繁操作时不处理动画队列就会造成队列堆积，&nbsp;&nbsp;&nbsp;&nbsp; 影响到效果。.......................................................................................................... 11</a></p>
+        <p><a href="#_Toc256000065">3.6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stop使用....................................................................................................... 11</a></p>
+        <p><a href="#_Toc256000066">3.6.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /*1.停止当前动画&nbsp; 如果动画队列当中还有动画立即执行*/&nbsp;&nbsp;&nbsp;&nbsp; //$('div').stop();&nbsp;&nbsp;&nbsp;&nbsp; /*2.和stop()效果一致&nbsp; 说明这是默认设置*/&nbsp;&nbsp;&nbsp;&nbsp; //$('div').stop(false,false);&nbsp;&nbsp;&nbsp;&nbsp; /*3.停止当前动画&nbsp; 清除动画队列*/&nbsp;&nbsp;&nbsp;&nbsp; //$('div').stop(true,false);&nbsp;&nbsp;&nbsp;&nbsp; /*4.停止当前动画并且到结束位置&nbsp; 清除了动画队列*/&nbsp;&nbsp;&nbsp;&nbsp; //$('div').stop(true,true);&nbsp;&nbsp;&nbsp;&nbsp; /*5.停止当前动画并且到结束位置&nbsp; 如果动画队列当中还有动画立即执行*/&nbsp;&nbsp;&nbsp;&nbsp; $('div').stop(false,true);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11</a></p>
+        <ol start="4">
+        <li><a href="#_Toc256000067"> 节点操作.............................................................................................................. 12</a></li>
+        </ol>
+        <p><a href="#_Toc256000068">4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 创建节点....................................................................................................... 12</a></p>
+        <p><a href="#_Toc256000069">4.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var $a = $('&lt;a href="http://www.baidu.com" target="_blank"&gt;百度1&lt;/a&gt;'); 12</a></p>
+        <p><a href="#_Toc256000070">4.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 克隆节点....................................................................................................... 12</a></p>
+        <p><a href="#_Toc256000071">4.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /*如果想克隆事件&nbsp; false&nbsp; true克隆事件*/&nbsp;&nbsp;&nbsp;&nbsp; var $cloneP = $('p').clone(true);................................................................................................. 12</a></p>
+        <p><a href="#_Toc256000072">4.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加&amp;移动节点............................................................................................ 12</a></p>
+        <p><a href="#_Toc256000073">4.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 父元素.append("")................................................................................. 12</a></p>
+        <p><a href="#_Toc256000074">4.3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 父元素.prepend().................................................................................. 12</a></p>
+        <p><a href="#_Toc256000075">4.3.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prependTo();.......................................................................................... 12</a></p>
+        <p><a href="#_Toc256000076">4.3.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aendTo();................................................................................................ 12</a></p>
+        <p><a href="#_Toc256000077">4.3.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; after()..................................................................................................... 12</a></p>
+        <p><a href="#_Toc256000078">4.3.6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; before();................................................................................................. 12</a></p>
+        <p><a href="#_Toc256000079">4.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 删除节点&amp;清空节点.................................................................................... 12</a></p>
+        <p><a href="#_Toc256000080">4.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 清理门户................................................................................................ 12</a></p>
+        <p><a href="#_Toc256000081">4.4.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 删除某个元素........................................................................................ 13</a></p>
+        <ol start="5">
+        <li><a href="#_Toc256000082"> jQuery特殊属性.................................................................................................. 13</a></li>
+        </ol>
+        <p><a href="#_Toc256000083">5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; val()................................................................................................................ 13</a></p>
+        <p><a href="#_Toc256000084">5.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 有参数就是设置,没有参数就是获取................................................... 13</a></p>
+        <p><a href="#_Toc256000085">5.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; html方法与text方法.................................................................................. 13</a></p>
+        <p><a href="#_Toc256000086">5.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 有参数就是设置,没有参数就是获取................................................... 13</a></p>
+        <p><a href="#_Toc256000087">5.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; width方法与height方法............................................................................ 13</a></p>
+        <p><a href="#_Toc256000088">5.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 有参数就是设置,没有参数就是获取................................................... 13</a></p>
+        <p><a href="#_Toc256000089">5.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; scrollTop与scrollLeft................................................................................... 13</a></p>
+        <p><a href="#_Toc256000090">5.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 有参数就是设置,没有参数就是获取................................................... 13</a></p>
+        <p><a href="#_Toc256000091">5.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; offset方法与position方法......................................................................... 13</a></p>
+        <p><a href="#_Toc256000092">5.5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; offset方法获取元素距离document的位置，position方法获取的是元素距离有定位的父元素的位置。.................................................................. 13</a></p>
+        <ol start="6">
+        <li><a href="#_Toc256000093"> jQuery事件机制.................................................................................................. 13</a></li>
+        </ol>
+        <p><a href="#_Toc256000094">6.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 简单事件注册............................................................................................... 13</a></p>
+        <p><a href="#_Toc256000095">6.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; click(handler).......................................................................................... 13</a></p>
+        <p><a href="#_Toc256000096">6.1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseenter(handler)............................................................................. 13</a></p>
+        <p><a href="#_Toc256000097">6.1.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseleave(handler)............................................................................. 14</a></p>
+        <p><a href="#_Toc256000098">6.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bind方式注册事件....................................................................................... 14</a></p>
+        <p><a href="#_Toc256000099">6.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 缺点：不能同时注册多个事件............................................................ 14</a></p>
+        <p><a href="#_Toc256000100">6.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; delegate注册委托事件................................................................................ 14</a></p>
+        <p><a href="#_Toc256000101">6.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 缺点：只能注册委托事件，因此注册时间需要记得方法太多了.... 14</a></p>
+        <p><a href="#_Toc256000102">6.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on注册事件.................................................................................................. 14</a></p>
+        <p><a href="#_Toc256000103">6.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on注册委托事件.................................................................................. 14</a></p>
+        <p><a href="#_Toc256000104">6.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 事件解绑....................................................................................................... 14</a></p>
+        <p><a href="#_Toc256000105">6.5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; off方式（推荐）.................................................................................. 14</a></p>
+        <p><a href="#_Toc256000106">6.6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 触发事件....................................................................................................... 15</a></p>
+        <p><a href="#_Toc256000107">6.6.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $(selector).click(); //触发 click事件&nbsp;&nbsp;&nbsp;&nbsp; $(selector).trigger("click");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15</a></p>
+        <ol start="7">
+        <li><a href="#_Toc256000108"> jQuery事件对象.................................................................................................. 15</a></li>
+        </ol>
+        <p><a href="#_Toc256000109">7.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jQuery事件对象其实就是js事件对象的一个封装，处理了兼容性。.. 15</a></p>
+        <ol start="8">
+        <li><a href="#_Toc256000110"> jQuery补充知识点.............................................................................................. 15</a></li>
+        </ol>
+        <p><a href="#_Toc256000111">8.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 链式编程....................................................................................................... 15</a></p>
+        <p><a href="#_Toc256000112">8.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end(); // 筛选选择器会改变jQuery对象的DOM对象，想要回复到上一次的状态，并且返回匹配元素之前的状态。.......................................... 15</a></p>
+        <p><a href="#_Toc256000113">8.1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 本质,返回当前的对象........................................................................... 15</a></p>
+        <p><a href="#_Toc256000114">8.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; each方法...................................................................................................... 15</a></p>
+        <p><a href="#_Toc256000115">8.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 作用：遍历jQuery对象集合，为每个匹配的元素执行一个函数... 15</a></p>
+        <ol start="9">
+        <li><a href="#_Toc256000116"> 插件...................................................................................................................... 15</a></li>
+        </ol>
+        <p><a href="#_Toc256000117">9.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 制作jquery插件........................................................................................... 15</a></p>
+        <p><a href="#_Toc256000118">9.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原理：jquery插件其实说白了就是给jquery对象增加一个新的方法，让jquery对象拥有某一个功能。............................................................. 15</a></p>
+        <ol start="10">
+        <li><a href="#_Toc256000119"> 多库共存........................................................................................................... 16</a></li>
+        </ol>
+        <p><a href="#_Toc256000120">10.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var c = $.noConflict();//释放$的控制权,并且把$的能力给了c.............. 16</a></p>
+        <p><strong><br /> </strong></p>
+        <h1><a name="_Toc256000002"></a>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jQuery选择器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+        <h2><a name="_Toc256000003"></a>1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 基本选择器</h2>
+        <h3><a name="_Toc256000004"></a>1.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ID选择器</h3>
+        <h4>$("#id")</h4>
+        <h3><a name="_Toc256000005"></a>1.1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 类选择器</h3>
+        <h4>$(".class")</h4>
+        <h3><a name="_Toc256000006"></a>1.1.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 标签选择器</h3>
+        <h4>$("div")</h4>
+        <h3><a name="_Toc256000007"></a>1.1.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 并集选择器</h3>
+        <h4>$("div,p,li")</h4>
+        <h3><a name="_Toc256000008"></a>1.1.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 交集选择器</h3>
+        <h4>$("div.redClass")</h4>
+        <h3><a name="_Toc256000009"></a>1.1.6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 总结:跟CSS的选择器用法一样</h3>
+        <h2><a name="_Toc256000010"></a>1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 层级选择器</h2>
+        <h3><a name="_Toc256000011"></a>1.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 子代选择器</h3>
+        <h4>$("ul&gt;li")</h4>
+        <h3><a name="_Toc256000012"></a>1.2.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 后代选择器</h3>
+        <h4>$("ul li")</h4>
+        <h3><a name="_Toc256000013"></a>1.2.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 总结:跟CSS选择器一样</h3>
+        <h2><a name="_Toc256000014"></a>1.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 过滤选择器</h2>
+        <p>&nbsp;</p>
+        <h3><a name="_Toc256000015"></a>1.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :eq(index)</h3>
+        <h4>$("li:eq(2)").css("color","red")</h4>
+        <h3><a name="_Toc256000016"></a>1.3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :odd</h3>
+        <h4>$("li:odd").css("color","red")</h4>
+        <h3><a name="_Toc256000017"></a>1.3.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :even</h3>
+        <h4>$("li:even").css("color","red")</h4>
+        <h3><a name="_Toc256000018"></a>1.3.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 总结:这类选择器都带冒号</h3>
+        <h2><a name="_Toc256000019"></a>1.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 筛选选择器(方法)</h2>
+        <h3><a name="_Toc256000020"></a>1.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; children(selector)</h3>
+        <h4>$(&ldquo;ul&rdquo;).children(&ldquo;li&rdquo;)</h4>
+        <h3><a name="_Toc256000021"></a>1.4.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find(selector)</h3>
+        <p>&nbsp;</p>
+        <p>所有的后代</p>
+        <h4>$(&ldquo;ul&rdquo;).find(&ldquo;li&rdquo;)</h4>
+        <h3><a name="_Toc256000022"></a>1.4.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; siblings(selector)</h3>
+        <h4>$(&ldquo;#first&rdquo;).siblings(&ldquo;li&rdquo;)</h4>
+        <h3><a name="_Toc256000023"></a>1.4.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parent()</h3>
+        <h4>$(&ldquo;#first&rdquo;).parent()</h4>
+        <h3><a name="_Toc256000024"></a>1.4.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parents(selector)</h3>
+        <p>&nbsp;</p>
+        <p>所有的父级元素</p>
+        <h4>$(&ldquo;#first&rdquo;).parents('div')</h4>
+        <h3><a name="_Toc256000025"></a>1.4.6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eq(index)</h3>
+        <h4>$(&ldquo;li&rdquo;).eq(2)</h4>
+        <h3><a name="_Toc256000026"></a>1.4.7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; next()</h3>
+        <h4>$(&ldquo;li&rdquo;).next()</h4>
+        <h3><a name="_Toc256000027"></a>1.4.8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nextAll()</h3>
+        <p>&nbsp;</p>
+        <p>后面所有的兄弟元素</p>
+        <h4>$(&ldquo;li&rdquo;).nextAll()</h4>
+        <h3><a name="_Toc256000028"></a>1.4.9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prev()</h3>
+        <h4>$(&ldquo;li&rdquo;).prev()</h4>
+        <h3><a name="_Toc256000029"></a>1.4.10.&nbsp;&nbsp;&nbsp;&nbsp; prevAll()</h3>
+        <p>&nbsp;</p>
+        <p>前面所有的兄弟元素</p>
+        <h4>$(&ldquo;li&rdquo;).prevAll()</h4>
+        <h1><a name="_Toc256000030"></a>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 元素设置</h1>
+        <h2><a name="_Toc256000031"></a>2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 样式设置</h2>
+        <h3><a name="_Toc256000032"></a>2.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 设置一个样式</h3>
+        <h4>&nbsp;$('li').css('color','red');</h4>
+        <h3><a name="_Toc256000033"></a>2.1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 设置多个样</h3>
+        <h4>$('li').css({'color':'green','font-size':'20px'&nbsp;&nbsp; });</h4>
+        <h2><a name="_Toc256000034"></a>2.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 类名设置</h2>
+        <h3><a name="_Toc256000035"></a>2.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加一个类</h3>
+        <h4>$('li').addClass('now');</h4>
+        <h3><a name="_Toc256000036"></a>2.2.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 删除一个类</h3>
+        <h4>$('li').removeClass('now');</h4>
+        <h3><a name="_Toc256000037"></a>2.2.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 切换一个类</h3>
+        <h4>&nbsp; $('li').toggleClass('now');</h4>
+        <h3><a name="_Toc256000038"></a>2.2.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .匹配一个类&nbsp; 判断是否包含某个类&nbsp; 如果包含返回true否知返回false</h3>
+        <h4>&nbsp;$('li').hasClass('now');</h4>
+        <h2><a name="_Toc256000039"></a>2.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 属性设置</h2>
+        <h3><a name="_Toc256000040"></a>2.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 获取属性</h3>
+        <h4>$('li').attr('name');</h4>
+        <h3><a name="_Toc256000041"></a>2.3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 设置属性</h3>
+        <h4>&nbsp;$('li').attr('name','tom');</h4>
+        <h3><a name="_Toc256000042"></a>2.3.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 设置多个属性</h3>
+        <h4>$('li').attr({<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'name':'tom',<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'age':'18'<br /> &nbsp;&nbsp;&nbsp; });</h4>
+        <h3><a name="_Toc256000043"></a>2.3.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 删除属性</h3>
+        <h4>$('li').removeAttr('name');</h4>
+        <h2><a name="_Toc256000044"></a>2.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prop方法</h2>
+        <h3><a name="_Toc256000045"></a>2.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 对于布尔类型的属性，不要attr方法，应该用prop方法 prop用法跟attr方法一样。</h3>
+        <h4>&nbsp; $("#checkbox").prop("checked");</h4>
+        <h4>&nbsp; $("#checkbox").prop("checked", true);</h4>
+        <p>&nbsp;</p>
+        <p>用来设置</p>
+        <h4>&nbsp;$("#checkbox").removeProp("checked");</h4>
+        <h1><a name="_Toc256000046"></a>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 动画</h1>
+        <h2><a name="_Toc256000047"></a>3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 基本动画</h2>
+        <h3><a name="_Toc256000048"></a>3.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 展示动画</h3>
+        <h4>&nbsp;$('li').show();</h4>
+        <h3><a name="_Toc256000049"></a>3.1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 隐藏动画</h3>
+        <h4>&nbsp;$('li').hide();</h4>
+        <h3><a name="_Toc256000050"></a>3.1.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 切换展示和隐藏</h3>
+        <h4>&nbsp; $('li').toggle();</h4>
+        <h2><a name="_Toc256000051"></a>3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 滑入滑出</h2>
+        <h3><a name="_Toc256000052"></a>3.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 滑入动画</h3>
+        <h4>&nbsp;$('li').slideDown();</h4>
+        <h3><a name="_Toc256000053"></a>3.2.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 滑出动画</h3>
+        <h4>&nbsp;$('li').slideUp();</h4>
+        <h3><a name="_Toc256000054"></a>3.2.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 切换滑入滑出</h3>
+        <h4>&nbsp;$('li').slideToggle();</h4>
+        <h2><a name="_Toc256000055"></a>3.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 淡入淡出</h2>
+        <h3><a name="_Toc256000056"></a>3.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 淡入动画</h3>
+        <h4>&nbsp;$('li').fadeIn();</h4>
+        <h3><a name="_Toc256000057"></a>3.3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 淡出动画</h3>
+        <h4>&nbsp;$('li').fadeOut();</h4>
+        <h3><a name="_Toc256000058"></a>3.3.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 切换淡入淡出</h3>
+        <h4>&nbsp;$('li').fadeToggle();</h4>
+        <h3><a name="_Toc256000059"></a>3.3.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 淡入到</h3>
+        <h4>&nbsp; $('li').fadeTo('speed','opacity');</h4>
+        <h2><a name="_Toc256000060"></a>3.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 自定义动画</h2>
+        <h3>3.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000061"></a>/*<br /> &nbsp;&nbsp;&nbsp; * 自定义动画<br /> &nbsp;&nbsp;&nbsp; * 参数1：需要做动画的属性<br /> &nbsp;&nbsp;&nbsp; * 参数2：需要执行动画的总时长<br /> &nbsp;&nbsp;&nbsp; * 参数3：执行动画的时候的速度<br /> &nbsp;&nbsp;&nbsp; * 参数4：执行动画完成之后的回调函数<br /> &nbsp;&nbsp;&nbsp; * */</h3>
+        <h3>3.4.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000062"></a>$('#box3').animate({left:800},5000,'swing',function () {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log('动画执行完成');<br /> &nbsp;&nbsp;&nbsp; });</h3>
+        <h2><a name="_Toc256000063"></a>3.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 动画队列</h2>
+        <h3>3.5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000064"></a>jQuery中有个动画队列的机制。<br /> &nbsp;&nbsp;&nbsp; 当我们对一个对象添加多次动画效果时后添加的动作就会被放入这个动画队列中，&nbsp; <br /> &nbsp;&nbsp;&nbsp; 等前面的动画完成后再开始执行。<br /> &nbsp;&nbsp;&nbsp; 可是用户的操作往往都比动画快，&nbsp; <br /> &nbsp;&nbsp;&nbsp; 如果用户对一个对象频繁操作时不处理动画队列就会造成队列堆积，<br /> &nbsp;&nbsp;&nbsp; 影响到效果。</h3>
+        <h2><a name="_Toc256000065"></a>3.6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stop使用</h2>
+        <h3>3.6.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a name="_Toc256000066"></a>/*1.停止当前动画&nbsp; 如果动画队列当中还有动画立即执行*/<br /> &nbsp;&nbsp;&nbsp; //$('div').stop();<br /> &nbsp;&nbsp;&nbsp; /*2.和stop()效果一致&nbsp; 说明这是默认设置*/<br /> &nbsp;&nbsp;&nbsp; //$('div').stop(false,false);<br /> &nbsp;&nbsp;&nbsp; /*3.停止当前动画&nbsp; 清除动画队列*/<br /> &nbsp;&nbsp;&nbsp; //$('div').stop(true,false);<br /> &nbsp;&nbsp;&nbsp; /*4.停止当前动画并且到结束位置&nbsp; 清除了动画队列*/<br /> &nbsp;&nbsp;&nbsp; //$('div').stop(true,true);<br /> &nbsp;&nbsp;&nbsp; /*5.停止当前动画并且到结束位置&nbsp; 如果动画队列当中还有动画立即执行*/<br /> &nbsp;&nbsp;&nbsp; $('div').stop(false,true);</h3>
+        <h1><a name="_Toc256000067"></a>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 节点操作</h1>
+        <h2><a name="_Toc256000068"></a>4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 创建节点</h2>
+        <h3><a name="_Toc256000069"></a>4.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var $a = $('&lt;a href="http://www.baidu.com" target="_blank"&gt;百度1&lt;/a&gt;');</h3>
+        <h2><a name="_Toc256000070"></a>4.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 克隆节点</h2>
+        <h3>4.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a name="_Toc256000071"></a>/*如果想克隆事件&nbsp; false&nbsp; true克隆事件*/<br /> &nbsp;&nbsp;&nbsp; var $cloneP = $('p').clone(true);</h3>
+        <h2><a name="_Toc256000072"></a>4.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加&amp;移动节点</h2>
+        <h3><a name="_Toc256000073"></a>4.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 父元素.append("")</h3>
+        <h3><a name="_Toc256000074"></a>4.3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 父元素.prepend()</h3>
+        <h3><a name="_Toc256000075"></a>4.3.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prependTo();</h3>
+        <h3><a name="_Toc256000076"></a>4.3.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aendTo();</h3>
+        <h3><a name="_Toc256000077"></a>4.3.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; after()</h3>
+        <h4>$("p").after( $("b") );</h4>
+        <h5>b添加到p后面</h5>
+        <h3>4.3.6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000078"></a>before();</h3>
+        <h2><a name="_Toc256000079"></a>4.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 删除节点&amp;清空节点</h2>
+        <h3><a name="_Toc256000080"></a>4.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 清理门户</h3>
+        <h4>&nbsp;$('#box').empty();</h4>
+        <h3><a name="_Toc256000081"></a>4.4.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 删除某个元素</h3>
+        <h4>&nbsp;&nbsp;$('#box').remove();</h4>
+        <h1><a name="_Toc256000082"></a>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jQuery特殊属性</h1>
+        <h2><a name="_Toc256000083"></a>5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; val()</h2>
+        <h3><a name="_Toc256000084"></a>5.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 有参数就是设置,没有参数就是获取</h3>
+        <h2><a name="_Toc256000085"></a>5.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; html方法与text方法</h2>
+        <h3><a name="_Toc256000086"></a>5.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 有参数就是设置,没有参数就是获取</h3>
+        <h2><a name="_Toc256000087"></a>5.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; width方法与height方法</h2>
+        <h3><a name="_Toc256000088"></a>5.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 有参数就是设置,没有参数就是获取</h3>
+        <h2><a name="_Toc256000089"></a>5.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; scrollTop与scrollLeft</h2>
+        <h3><a name="_Toc256000090"></a>5.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 有参数就是设置,没有参数就是获取</h3>
+        <h2><a name="_Toc256000091"></a>5.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; offset方法与position方法</h2>
+        <h3><a name="_Toc256000092"></a>5.5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; offset方法获取元素距离document的位置，position方法获取的是元素距离有定位的父元素的位置。</h3>
+        <h1><a name="_Toc256000093"></a>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jQuery事件机制</h1>
+        <h2><a name="_Toc256000094"></a>6.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 简单事件注册</h2>
+        <h3>6.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000095"></a>click(handler)</h3>
+        <h3><a name="_Toc256000096"></a>6.1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseenter(handler)</h3>
+        <h3><a name="_Toc256000097"></a>6.1.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseleave(handler)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+        <h2><a name="_Toc256000098"></a>6.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bind方式注册事件</h2>
+        <h3><a name="_Toc256000099"></a>6.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 缺点：不能同时注册多个事件</h3>
+        <h2><a name="_Toc256000100"></a>6.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; delegate注册委托事件</h2>
+        <h3><a name="_Toc256000101"></a>6.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 缺点：只能注册委托事件，因此注册时间需要记得方法太多了</h3>
+        <h2><a name="_Toc256000102"></a>6.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on注册事件</h2>
+        <h3><a name="_Toc256000103"></a>6.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on注册委托事件</h3>
+        <h4>&nbsp;&nbsp;&nbsp; // 第一个参数：events，绑定事件的名称可以是由空格分隔的多个事件（标准事件或者自定义事件）<br /> &nbsp;&nbsp;&nbsp; // 第二个参数：selector, 执行事件的后代元素（可选），如果没有后代元素，那么事件将有自己执行。<br /> &nbsp;&nbsp;&nbsp; // 第三个参数：data，传递给处理函数的数据，事件触发的时候通过event.data来使用（不常使用）<br /> &nbsp;&nbsp;&nbsp; // 第四个参数：handler，事件处理函数<br /> &nbsp;&nbsp;&nbsp; $(selector).on(events,[selector],[data],handler);</h4>
+        <h2><a name="_Toc256000104"></a>6.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 事件解绑</h2>
+        <h3><a name="_Toc256000105"></a>6.5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; off方式（推荐）</h3>
+        <h4>&nbsp;&nbsp;&nbsp; // 解绑匹配元素的所有事件<br /> &nbsp;&nbsp;&nbsp; $(selector).off();<br /> &nbsp;&nbsp;&nbsp; // 解绑匹配元素的所有click事件<br /> &nbsp;&nbsp;&nbsp; $(selector).off("click");</h4>
+        <h2><a name="_Toc256000106"></a>6.6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 触发事件</h2>
+        <h3>6.6.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a name="_Toc256000107"></a>$(selector).click(); //触发 click事件<br /> &nbsp;&nbsp;&nbsp; $(selector).trigger("click");</h3>
+        <h1><a name="_Toc256000108"></a>7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jQuery事件对象</h1>
+        <h2><a name="_Toc256000109"></a>7.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jQuery事件对象其实就是js事件对象的一个封装，处理了兼容性。</h2>
+        <h1><a name="_Toc256000110"></a>8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jQuery补充知识点</h1>
+        <h2><a name="_Toc256000111"></a>8.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 链式编程</h2>
+        <h3>8.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000112"></a>end(); // 筛选选择器会改变jQuery对象的DOM对象，想要回复到上一次的状态，并且返回匹配元素之前的状态。</h3>
+        <h3><a name="_Toc256000113"></a>8.1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 本质,返回当前的对象</h3>
+        <h2><a name="_Toc256000114"></a>8.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; each方法</h2>
+        <h3><a name="_Toc256000115"></a>8.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 作用：遍历jQuery对象集合，为每个匹配的元素执行一个函数</h3>
+        <h1><a name="_Toc256000116"></a>9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 插件</h1>
+        <h2><a name="_Toc256000117"></a>9.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 制作jquery插件</h2>
+        <h3><a name="_Toc256000118"></a>9.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原理：jquery插件其实说白了就是给jquery对象增加一个新的方法，让jquery对象拥有某一个功能。</h3>
+        <h4>//通过给$.fn添加方法就能够扩展jquery对象<br /> $.fn. pluginName = function() {};</h4>
+        <h1><a name="_Toc256000119"></a>10.&nbsp; 多库共存</h1>
+        <h2>10.1.&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a name="_Toc256000120"></a>var c = $.noConflict();//释放$的控制权,并且把$的能力给了c</h2>
+    </div>
+
+  <div class="top">
+    <h3>TOP</h3>
+  </div>
+  <script src="./js/jquery-1.12.4.min.js"></script>
+  <script src="./js/markdown-it.min.js"></script>
+  <script>
+    $('.top h3').click(function () {
+
+      $('html').animate({
+        scrollTop: 0,
+      })
+    })
+
+
+    /*  $.get('./md/01-html/html.md', function (text) {
+
+       $(' .content-show-md').html(
+         markdownit().render(text)
+       )
+     }); */
+  </script>
+</body>
+
+</html>
