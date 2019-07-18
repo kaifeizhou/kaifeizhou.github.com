@@ -173,11 +173,11 @@
       if ($('html').scrollTop() == 0) {
         return
       }
-      $('.freccia_top h4 img').attr('src', './images/火箭.png').css('width', '300%')
+     
       $('html').animate({
         scrollTop: 0,
       }, function () {
-        $('.freccia_top h4 img').attr('src', './images/freccia_top.gif').css('width', '100%')
+     
       })
     })
 

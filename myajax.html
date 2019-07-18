@@ -86,134 +86,358 @@
         width: 90%;
       }
     }
+
+    body footer {
+  width: 100%;
+  height: 100px;
+  background-color: #292929;
+  overflow: hidden;
+}
+body footer img {
+  display: block;
+  width: 50%;
+  margin: 25px auto 0;
+  animation: bounce 3s infinite;
+}
+body .freccia_top {
+  position: fixed;
+  right: 13%;
+  bottom: 110px;
+  width: 30px;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+}
+body .freccia_top img {
+  width: 100%;
+}
+@keyframes bounce {
+  from,
+  20%,
+  53%,
+  80%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  40%,
+  43% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -15px, 0);
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, -4px, 0);
+    transform: translate3d(0, -4px, 0);
+  }
+}
   </style>
   <title>Ajax</title>
 </head>
 
 <body>
 
-    <div class="content-show-md ">
-        <p>&nbsp;</p>
-        <h2 style="text-align: center;"><strong><a name="_Toc256000000"></a>Ajax</strong></h2>
-        <p>&nbsp;</p>
-        <ol>
-        <li><a href="#_Toc256000002"> 服务器.................................................................................................................... 4</a></li>
-        </ol>
-        <p><a href="#_Toc256000003">1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 它是一台用来提供服务的电脑，所以才叫服务器..................................... 4</a></p>
-        <p><a href="#_Toc256000004">1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 对服务器发请求的方式................................................................................. 4</a></p>
-        <p><a href="#_Toc256000005">1.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.在浏览器网址栏输入网址&nbsp; 2.a标签发请求&nbsp; 3.location.href 也能发请求&nbsp; window.open&nbsp; 4.form表单................................................................. 4</a></p>
-        <p><a href="#_Toc256000006">1.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ajax是一种不用跳转就能发请求的技术（是一种异步请求技术）......... 5</a></p>
-        <ol start="2">
-        <li><a href="#_Toc256000007"> jQ............................................................................................................................ 5</a></li>
-        </ol>
-        <p><a href="#_Toc256000008">2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $.get({})............................................................................................................ 5</a></p>
-        <p><a href="#_Toc256000009">2.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url：就是你请求接口路径 data:参数(可以是对象,对象方便些) success:需要给一个回调函数，这个函数的形参就是接口给你响应的数据.. 5</a></p>
-        <p><a href="#_Toc256000010">2.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $.get({})............................................................................................................ 5</a></p>
-        <p><a href="#_Toc256000011">2.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 同上.......................................................................................................... 5</a></p>
-        <p><a href="#_Toc256000012">2.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $.ajax({}).......................................................................................................... 5</a></p>
-        <p><a href="#_Toc256000013">2.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 和$.get&nbsp; $.post 几乎没有区别，只是比它们多一个属性叫 type.... 5</a></p>
-        <p><a href="#_Toc256000014">2.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dataType:'json'----没有自动转DOM对象,设置此属性................................ 5</a></p>
-        <p><a href="#_Toc256000015">2.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 解决跨域问题,接口支持jsonp...................................................................... 5</a></p>
-        <p><a href="#_Toc256000016">2.5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dataType:"jsonp",.................................................................................... 5</a></p>
-        <p><a href="#_Toc256000017">2.6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var fm = new FormData($('form')[0]);&nbsp;&nbsp; 在new它的时候传入一个参数，参数要求传入表单元素（只能是DOM对象，不能是jQuery对象）................ 5</a></p>
-        <p><a href="#_Toc256000018">2.6.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contentType: false,&nbsp;&nbsp; processData: false,&nbsp;&nbsp; 因为自身设置了参数和设置了请求报文头,............................................................................................... 5</a></p>
-        <p><a href="#_Toc256000019">2.6.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 必须注意form表单的中name属性的名字必须和接口一致,如果参数不够用append(参数名,参数值)....................................................................... 6</a></p>
-        <ol start="3">
-        <li><a href="#_Toc256000020"> 原生JS发ajax....................................................................................................... 6</a></li>
-        </ol>
-        <p><a href="#_Toc256000021">3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get方式........................................................................................................... 6</a></p>
-        <p><a href="#_Toc256000022">3.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.创建XMLHttpRequest对象，建议变量名叫xhr--- var xhr = new XMLHttpRequest();&nbsp; 2.调用open方法，设置请求方式和请求路径&nbsp; --参数1：请求方式 参数2：请求路径&nbsp; 3.监听响应完成事件--&nbsp; xhr.onload = function(){}&nbsp; /xhr.onreadystatechange=function(){&nbsp; if(xhr.readyState==4&amp;&amp;xhr.status==200){&nbsp;&nbsp;&nbsp; 操作&nbsp;&nbsp; xhr.responseText&nbsp;&nbsp; ,注意JSON.parse&nbsp;&nbsp;&nbsp;&nbsp; } }&nbsp;&nbsp; 4.xhr.send()............... 6</a></p>
-        <p><a href="#_Toc256000023">3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post方式......................................................................................................... 6</a></p>
-        <p><a href="#_Toc256000024">3.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.创建XMLHttpRequest对象，建议变量名叫xhr--- var xhr = new XMLHttpRequest();&nbsp; 2.调用open方法，设置请求方式和请求路径就可以!!!!&nbsp; 3.监听响应完成事件--&nbsp; xhr.onload = function(){}&nbsp; /xhr.onreadystatechange=function(){&nbsp; if(xhr.readyState==4&amp;&amp;xhr.status==200){&nbsp;&nbsp;&nbsp; 操作&nbsp;&nbsp; xhr.responseText&nbsp;&nbsp; ,注意JSON.parse&nbsp;&nbsp;&nbsp;&nbsp; } }&nbsp;&nbsp; 4.设置请求报文头&nbsp;&nbsp;&nbsp; xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); 5.发请求&nbsp;&nbsp; xhr.send('参数')&nbsp; 多个参数之间也是用&amp;连接............................. 6</a></p>
-        <p><a href="#_Toc256000025">3.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原生JS使用 FromData.................................................................................. 7</a></p>
-        <p><a href="#_Toc256000026">3.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var fm = new FormData(form);................................................................ 7</a></p>
-        <p><a href="#_Toc256000027">3.3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 不需要设置请求报文头,xhr.send(fm).................................................... 7</a></p>
-        <p><a href="#_Toc256000028">3.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原生发ajax封装............................................................................................ 7</a></p>
-        <p><a href="#_Toc256000029">3.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var my$ = {}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* get请求方法 */&nbsp;&nbsp;&nbsp;&nbsp; my$.get = function (params) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var xhr = new XMLHttpRequest()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (params.data) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.url += "?" + params.data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.open('get', params.url)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.onreadystatechange = function () {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.success(xhr.responseText)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.send()&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* post请求 */&nbsp;&nbsp;&nbsp; &nbsp;my$.post = function (params) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var xhr = new XMLHttpRequest()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.open('post', params.url)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.onreadystatechange = function () {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.success(xhr.responseText)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.send(params.data)&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; my$.ajax = function (params) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var xhr = new XMLHttpRequest()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* 全部转换成小写,避免 */&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.type = (params.type).toLowerCase()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (params.type == 'get' &amp;&amp; params.data) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.url += "?" + params.data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.open(params.type, params.url)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.onreadystatechange = function () {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.success(xhr.responseText)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (params.type == 'post') {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.send(params.data)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.send()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }......................................................... 7</a></p>
-        <ol start="4">
-        <li><a href="#_Toc256000030"> get和post的区别................................................................................................ 9</a></li>
-        </ol>
-        <p><a href="#_Toc256000031">4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get和post肉眼可见的区别是：.................................................................. 9</a></p>
-        <p><a href="#_Toc256000032">4.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get请求会把非参数放到网址上传递 post请求不会放到网址上传递&nbsp; （它放到请求体里传递）.................................................................................... 9</a></p>
-        <ol start="5">
-        <li><a href="#_Toc256000033"> 请求报文：............................................................................................................ 9</a></li>
-        </ol>
-        <p><a href="#_Toc256000034">5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其实就是浏览器发请求给服务器时带的所有的信息：请求方式、请求的参数啊、请求时的软件环境等............................................................................ 9</a></p>
-        <ol start="6">
-        <li><a href="#_Toc256000035"> 模板引擎.............................................................................................................. 10</a></li>
-        </ol>
-        <p><a href="#_Toc256000036">6.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; art-template.js............................................................................................... 10</a></p>
-        <p><a href="#_Toc256000037">6.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 用法........................................................................................................ 10</a></p>
-        <p><a href="#_Toc256000038">6.1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; each&nbsp; 循环............................................................................................ 10</a></p>
-        <ol start="7">
-        <li><a href="#_Toc256000039"> 图灵机器人V1.0api地址................................................................................... 10</a></li>
-        </ol>
-        <p><a href="#_Toc256000040">7.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://www.tuling123.com/openapi/api...................................................... 10</a></p>
-        <p><a href="#_Toc256000041">7.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data:{ key:'2162602fd87240a8b7bba7431ffd379b', info:msg },.................. 10</a></p>
-        <ol start="8">
-        <li><a href="#_Toc256000042"> 设置图片预览...................................................................................................... 10</a></li>
-        </ol>
-        <p><a href="#_Toc256000043">8.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var url = URL.createObjectURL( this.files[0] );----表单的file........................ 10</a></p>
-        <p><a href="#_Toc256000044">8.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $('.preview').attr('src',url);............................................................................ 11</a></p>
-        <p><strong><br /> </strong></p>
-        <h1><a name="_Toc256000002"></a>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 服务器</h1>
-        <h2><a name="_Toc256000003"></a>1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 它是一台用来提供服务的电脑，所以才叫服务器</h2>
-        <h2><a name="_Toc256000004"></a>1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 对服务器发请求的方式</h2>
-        <h3>1.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000005"></a>1.在浏览器网址栏输入网址<br /> &nbsp;2.a标签发请求<br /> &nbsp;3.location.href 也能发请求&nbsp; window.open<br /> &nbsp;4.form表单</h3>
-        <h2>1.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a name="_Toc256000006"></a>ajax是一种不用跳转就能发请求的技术（是一种异步请求技术）</h2>
-        <h1><a name="_Toc256000007"></a>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jQ</h1>
-        <h2><a name="_Toc256000008"></a>2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $.get({})</h2>
-        <h3><a name="_Toc256000009"></a>2.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url：就是你请求接口路径<br /> data:参数(可以是对象,对象方便些)<br /> success:需要给一个回调函数，这个函数的形参就是接口给你响应的数据</h3>
-        <h2><a name="_Toc256000010"></a>2.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $.get({})</h2>
-        <h3><a name="_Toc256000011"></a>2.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 同上</h3>
-        <h2><a name="_Toc256000012"></a>2.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $.ajax({})</h2>
-        <h3>2.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000013"></a>和$.get&nbsp; $.post 几乎没有区别，只是比它们多一个属性叫 type</h3>
-        <h2><a name="_Toc256000014"></a>2.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dataType:'json'----没有自动转DOM对象,设置此属性</h2>
-        <h2><a name="_Toc256000015"></a>2.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 解决跨域问题,接口支持jsonp</h2>
-        <h3>2.5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000016"></a>dataType:"jsonp",</h3>
-        <h2><a name="_Toc256000017"></a>2.6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var fm = new FormData($('form')[0]); <br /> &nbsp;在new它的时候传入一个参数，参数要求传入表单元素（只能是DOM对象，不能是jQuery对象）</h2>
-        <h3>2.6.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000018"></a>contentType: false,<br /> &nbsp; processData: false,&nbsp;&nbsp; 因为自身设置了参数和设置了请求报文头,</h3>
-        <h3><a name="_Toc256000019"></a>2.6.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 必须注意form表单的中name属性的名字必须和接口一致,如果参数不够用append(参数名,参数值)</h3>
-        <h1><a name="_Toc256000020"></a>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原生JS发ajax</h1>
-        <h2><a name="_Toc256000021"></a>3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get方式</h2>
-        <h3><a name="_Toc256000022"></a>3.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.创建XMLHttpRequest对象，建议变量名叫xhr---<br /> var xhr = new XMLHttpRequest();<br /> &nbsp;2.调用open方法，设置请求方式和请求路径&nbsp; --参数1：请求方式 参数2：请求路径<br /> &nbsp;3.监听响应完成事件--&nbsp; xhr.onload = function(){}&nbsp; /xhr.onreadystatechange=function(){<br /> &nbsp;if(xhr.readyState==4&amp;&amp;xhr.status==200){&nbsp;&nbsp; <br /> 操作&nbsp;&nbsp; xhr.responseText&nbsp;&nbsp; ,注意JSON.parse<br /> &nbsp;&nbsp;&nbsp; }<br /> }&nbsp; <br /> 4.xhr.send()</h3>
-        <h2><a name="_Toc256000023"></a>3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post方式</h2>
-        <h3><a name="_Toc256000024"></a>3.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.创建XMLHttpRequest对象，建议变量名叫xhr---<br /> var xhr = new XMLHttpRequest();<br /> &nbsp;2.调用open方法，设置请求方式和请求路径就可以!!!!<br /> &nbsp;3.监听响应完成事件--&nbsp; xhr.onload = function(){}&nbsp; /xhr.onreadystatechange=function(){<br /> &nbsp;if(xhr.readyState==4&amp;&amp;xhr.status==200){&nbsp;&nbsp; <br /> 操作&nbsp;&nbsp; xhr.responseText&nbsp;&nbsp; ,注意JSON.parse<br /> &nbsp;&nbsp;&nbsp; }<br /> }&nbsp; <br /> 4.设置请求报文头&nbsp;&nbsp;&nbsp; xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');<br /> 5.发请求&nbsp;&nbsp; xhr.send('参数')&nbsp; 多个参数之间也是用&amp;连接</h3>
-        <h2><a name="_Toc256000025"></a>3.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原生JS使用 FromData</h2>
-        <h3>3.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a name="_Toc256000026"></a>var fm = new FormData(form);</h3>
-        <h3><a name="_Toc256000027"></a>3.3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 不需要设置请求报文头,xhr.send(fm)</h3>
-        <h2><a name="_Toc256000028"></a>3.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原生发ajax封装</h2>
-        <p>&nbsp;</p>
-        <p>不要点开</p>
-        <p>&nbsp;</p>
-        <h3>3.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a name="_Toc256000029"></a>var my$ = {}<br /> <br /> &nbsp;&nbsp;&nbsp; /* get请求方法 */<br /> &nbsp;&nbsp;&nbsp; my$.get = function (params) {<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var xhr = new XMLHttpRequest()<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (params.data) {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.url += "?" + params.data<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.open('get', params.url)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.onreadystatechange = function () {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.success(xhr.responseText)<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.send()<br /> &nbsp;&nbsp;&nbsp; }<br /> <br /> &nbsp;&nbsp;&nbsp; /* post请求 */<br /> &nbsp;&nbsp;&nbsp; my$.post = function (params) {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var xhr = new XMLHttpRequest()<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.open('post', params.url)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.onreadystatechange = function () {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.success(xhr.responseText)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.send(params.data)<br /> &nbsp;&nbsp;&nbsp; }<br /> <br /> &nbsp;&nbsp;&nbsp; my$.ajax = function (params) {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var xhr = new XMLHttpRequest()<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* 全部转换成小写,避免 */<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.type = (params.type).toLowerCase()<br /> <br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (params.type == 'get' &amp;&amp; params.data) {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.url += "?" + params.data<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.open(params.type, params.url)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.onreadystatechange = function () {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.success(xhr.responseText)<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (params.type == 'post') {<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.send(params.data)<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.send()<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> <br /> &nbsp;&nbsp;&nbsp; }</h3>
-        <h1><a name="_Toc256000030"></a>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get和post的区别</h1>
-        <h2><a name="_Toc256000031"></a>4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get和post肉眼可见的区别是：</h2>
-        <h3>4.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000032"></a>get请求会把非参数放到网址上传递<br /> post请求不会放到网址上传递&nbsp; （它放到请求体里传递）</h3>
-        <h1><a name="_Toc256000033"></a>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 请求报文：</h1>
-        <h2><a name="_Toc256000034"></a>5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其实就是浏览器发请求给服务器时带的所有的信息：请求方式、请求的参数啊、请求时的软件环境等</h2>
-        <h1><a name="_Toc256000035"></a>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 模板引擎</h1>
-        <h2><a name="_Toc256000036"></a>6.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; art-template.js</h2>
-        <h3><a name="_Toc256000037"></a>6.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 用法</h3>
-        <h4>1.导入art-template.js</h4>
-        <h4>2.准备一个模板<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1 用script标签准备模板<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2 必须给这个标签加一个id，方便找到这个模板<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.3 必须给type属性，而且type属性不能是text/javascript</h4>
-        <h4>3.使用template函数来根据模板生成字符串----调用template('id',对象或数组);</h4>
-        <h3><a name="_Toc256000038"></a>6.1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; each&nbsp; 循环</h3>
-        <h4>each 后面可以传本身有的对象, $value可以缩写成v</h4>
-        <h4>$value&nbsp; 值可以继续点属性 $value.name</h4>
-        <h4>$index下标</h4>
-        <h4>if语句 elseif&nbsp;&nbsp; {{if}}&nbsp; {{/if}}</h4>
-        <h1><a name="_Toc256000039"></a>7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 图灵机器人V1.0api地址</h1>
-        <h2>7.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://www.tuling123.com/openapi/api">http://www.tuling123.com/openapi/api</a><a name="_Toc256000040"></a></h2>
-        <h2>7.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000041"></a>data:{ key:'2162602fd87240a8b7bba7431ffd379b', info:msg },</h2>
-        <h1><a name="_Toc256000042"></a>8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 设置图片预览</h1>
-        <h2>8.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000043"></a>var url = URL.createObjectURL( this.files[0] );----表单的file</h2>
-        <h2><a name="_Toc256000044"></a>8.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $('.preview').attr('src',url);</h2>
-    </div>
+  <div class="content-show-md ">
+    <p>&nbsp;</p>
+    <h2 style="text-align: center;"><strong><a name="_Toc256000000"></a>Ajax</strong></h2>
+    <p>&nbsp;</p>
+    <ol>
+      <li><a href="#_Toc256000002">
+          服务器....................................................................................................................
+          4</a></li>
+    </ol>
+    <p><a href="#_Toc256000003">1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        它是一台用来提供服务的电脑，所以才叫服务器..................................... 4</a></p>
+    <p><a href="#_Toc256000004">1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        对服务器发请求的方式................................................................................. 4</a></p>
+    <p><a href="#_Toc256000005">1.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.在浏览器网址栏输入网址&nbsp; 2.a标签发请求&nbsp; 3.location.href
+        也能发请求&nbsp; window.open&nbsp; 4.form表单................................................................. 4</a>
+    </p>
+    <p><a href="#_Toc256000006">1.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ajax是一种不用跳转就能发请求的技术（是一种异步请求技术）......... 5</a></p>
+    <ol start="2">
+      <li><a href="#_Toc256000007">
+          jQ............................................................................................................................
+          5</a></li>
+    </ol>
+    <p><a href="#_Toc256000008">2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        $.get({})............................................................................................................
+        5</a></p>
+    <p><a href="#_Toc256000009">2.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url：就是你请求接口路径 data:参数(可以是对象,对象方便些)
+        success:需要给一个回调函数，这个函数的形参就是接口给你响应的数据.. 5</a></p>
+    <p><a href="#_Toc256000010">2.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        $.get({})............................................................................................................
+        5</a></p>
+    <p><a href="#_Toc256000011">2.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        同上..........................................................................................................
+        5</a></p>
+    <p><a href="#_Toc256000012">2.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        $.ajax({})..........................................................................................................
+        5</a></p>
+    <p><a href="#_Toc256000013">2.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 和$.get&nbsp; $.post 几乎没有区别，只是比它们多一个属性叫 type....
+        5</a></p>
+    <p><a href="#_Toc256000014">2.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        dataType:'json'----没有自动转DOM对象,设置此属性................................ 5</a></p>
+    <p><a href="#_Toc256000015">2.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        解决跨域问题,接口支持jsonp...................................................................... 5</a></p>
+    <p><a href="#_Toc256000016">2.5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        dataType:"jsonp",.................................................................................... 5</a></p>
+    <p><a href="#_Toc256000017">2.6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var fm = new FormData($('form')[0]);&nbsp;&nbsp;
+        在new它的时候传入一个参数，参数要求传入表单元素（只能是DOM对象，不能是jQuery对象）................ 5</a></p>
+    <p><a href="#_Toc256000018">2.6.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contentType: false,&nbsp;&nbsp; processData:
+        false,&nbsp;&nbsp;
+        因为自身设置了参数和设置了请求报文头,...............................................................................................
+        5</a></p>
+    <p><a href="#_Toc256000019">2.6.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        必须注意form表单的中name属性的名字必须和接口一致,如果参数不够用append(参数名,参数值).......................................................................
+        6</a></p>
+    <ol start="3">
+      <li><a href="#_Toc256000020">
+          原生JS发ajax.......................................................................................................
+          6</a></li>
+    </ol>
+    <p><a href="#_Toc256000021">3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        get方式...........................................................................................................
+        6</a></p>
+    <p><a href="#_Toc256000022">3.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.创建XMLHttpRequest对象，建议变量名叫xhr--- var xhr = new
+        XMLHttpRequest();&nbsp; 2.调用open方法，设置请求方式和请求路径&nbsp; --参数1：请求方式 参数2：请求路径&nbsp; 3.监听响应完成事件--&nbsp; xhr.onload =
+        function(){}&nbsp; /xhr.onreadystatechange=function(){&nbsp;
+        if(xhr.readyState==4&amp;&amp;xhr.status==200){&nbsp;&nbsp;&nbsp; 操作&nbsp;&nbsp; xhr.responseText&nbsp;&nbsp;
+        ,注意JSON.parse&nbsp;&nbsp;&nbsp;&nbsp; } }&nbsp;&nbsp; 4.xhr.send()............... 6</a></p>
+    <p><a href="#_Toc256000023">3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        post方式.........................................................................................................
+        6</a></p>
+    <p><a href="#_Toc256000024">3.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.创建XMLHttpRequest对象，建议变量名叫xhr--- var xhr = new
+        XMLHttpRequest();&nbsp; 2.调用open方法，设置请求方式和请求路径就可以!!!!&nbsp; 3.监听响应完成事件--&nbsp; xhr.onload = function(){}&nbsp;
+        /xhr.onreadystatechange=function(){&nbsp; if(xhr.readyState==4&amp;&amp;xhr.status==200){&nbsp;&nbsp;&nbsp;
+        操作&nbsp;&nbsp; xhr.responseText&nbsp;&nbsp; ,注意JSON.parse&nbsp;&nbsp;&nbsp;&nbsp; } }&nbsp;&nbsp;
+        4.设置请求报文头&nbsp;&nbsp;&nbsp; xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        5.发请求&nbsp;&nbsp; xhr.send('参数')&nbsp; 多个参数之间也是用&amp;连接............................. 6</a></p>
+    <p><a href="#_Toc256000025">3.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原生JS使用
+        FromData.................................................................................. 7</a></p>
+    <p><a href="#_Toc256000026">3.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var fm = new
+        FormData(form);................................................................ 7</a></p>
+    <p><a href="#_Toc256000027">3.3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        不需要设置请求报文头,xhr.send(fm).................................................... 7</a></p>
+    <p><a href="#_Toc256000028">3.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        原生发ajax封装............................................................................................ 7</a></p>
+    <p><a href="#_Toc256000029">3.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var my$ = {}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /*
+        get请求方法 */&nbsp;&nbsp;&nbsp;&nbsp; my$.get = function (params) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var
+        xhr = new XMLHttpRequest()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (params.data)
+        {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.url += "?" +
+        params.data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.open('get',
+        params.url)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.onreadystatechange = function ()
+        {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xhr.readyState == 4 &amp;&amp; xhr.status == 200)
+        {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        params.success(xhr.responseText)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        xhr.send()&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* post请求 */&nbsp;&nbsp;&nbsp; &nbsp;my$.post
+        = function (params) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var xhr = new
+        XMLHttpRequest()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.open('post',
+        params.url)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.onreadystatechange = function ()
+        {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xhr.readyState == 4 &amp;&amp; xhr.status == 200)
+        {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        params.success(xhr.responseText)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        xhr.setRequestHeader('Content-type',
+        'application/x-www-form-urlencoded');&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        xhr.send(params.data)&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; my$.ajax = function (params)
+        {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var xhr = new XMLHttpRequest()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        /* 全部转换成小写,避免 */&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.type =
+        (params.type).toLowerCase()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (params.type == 'get' &amp;&amp;
+        params.data) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.url += "?" +
+        params.data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        xhr.open(params.type, params.url)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        xhr.onreadystatechange = function () {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xhr.readyState == 4
+        &amp;&amp; xhr.status == 200) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        params.success(xhr.responseText)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (params.type == 'post')
+        {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.setRequestHeader('Content-type',
+        'application/x-www-form-urlencoded');&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        xhr.send(params.data)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else
+        {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.send()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }......................................................... 7</a></p>
+    <ol start="4">
+      <li><a href="#_Toc256000030">
+          get和post的区别................................................................................................
+          9</a></li>
+    </ol>
+    <p><a href="#_Toc256000031">4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        get和post肉眼可见的区别是：.................................................................. 9</a></p>
+    <p><a href="#_Toc256000032">4.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get请求会把非参数放到网址上传递 post请求不会放到网址上传递&nbsp;
+        （它放到请求体里传递）.................................................................................... 9</a></p>
+    <ol start="5">
+      <li><a href="#_Toc256000033">
+          请求报文：............................................................................................................
+          9</a></li>
+    </ol>
+    <p><a href="#_Toc256000034">5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        其实就是浏览器发请求给服务器时带的所有的信息：请求方式、请求的参数啊、请求时的软件环境等............................................................................
+        9</a></p>
+    <ol start="6">
+      <li><a href="#_Toc256000035">
+          模板引擎..............................................................................................................
+          10</a></li>
+    </ol>
+    <p><a href="#_Toc256000036">6.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        art-template.js...............................................................................................
+        10</a></p>
+    <p><a href="#_Toc256000037">6.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        用法........................................................................................................
+        10</a></p>
+    <p><a href="#_Toc256000038">6.1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; each&nbsp;
+        循环............................................................................................ 10</a></p>
+    <ol start="7">
+      <li><a href="#_Toc256000039">
+          图灵机器人V1.0api地址................................................................................... 10</a></li>
+    </ol>
+    <p><a href="#_Toc256000040">7.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        http://www.tuling123.com/openapi/api...................................................... 10</a></p>
+    <p><a href="#_Toc256000041">7.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data:{ key:'2162602fd87240a8b7bba7431ffd379b',
+        info:msg },.................. 10</a></p>
+    <ol start="8">
+      <li><a href="#_Toc256000042">
+          设置图片预览......................................................................................................
+          10</a></li>
+    </ol>
+    <p><a href="#_Toc256000043">8.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var url = URL.createObjectURL( this.files[0]
+        );----表单的file........................ 10</a></p>
+    <p><a href="#_Toc256000044">8.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        $('.preview').attr('src',url);............................................................................
+        11</a></p>
+    <p><strong><br /> </strong></p>
+    <h1><a name="_Toc256000002"></a>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 服务器</h1>
+    <h2><a name="_Toc256000003"></a>1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 它是一台用来提供服务的电脑，所以才叫服务器</h2>
+    <h2><a name="_Toc256000004"></a>1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 对服务器发请求的方式</h2>
+    <h3>1.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000005"></a>1.在浏览器网址栏输入网址<br />
+      &nbsp;2.a标签发请求<br /> &nbsp;3.location.href 也能发请求&nbsp; window.open<br /> &nbsp;4.form表单</h3>
+    <h2>1.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a
+        name="_Toc256000006"></a>ajax是一种不用跳转就能发请求的技术（是一种异步请求技术）</h2>
+    <h1><a name="_Toc256000007"></a>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jQ</h1>
+    <h2><a name="_Toc256000008"></a>2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $.get({})</h2>
+    <h3><a name="_Toc256000009"></a>2.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url：就是你请求接口路径<br />
+      data:参数(可以是对象,对象方便些)<br /> success:需要给一个回调函数，这个函数的形参就是接口给你响应的数据</h3>
+    <h2><a name="_Toc256000010"></a>2.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $.get({})</h2>
+    <h3><a name="_Toc256000011"></a>2.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 同上</h3>
+    <h2><a name="_Toc256000012"></a>2.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $.ajax({})</h2>
+    <h3>2.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000013"></a>和$.get&nbsp; $.post
+      几乎没有区别，只是比它们多一个属性叫 type</h3>
+    <h2><a name="_Toc256000014"></a>2.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dataType:'json'----没有自动转DOM对象,设置此属性
+    </h2>
+    <h2><a name="_Toc256000015"></a>2.5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 解决跨域问题,接口支持jsonp</h2>
+    <h3>2.5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000016"></a>dataType:"jsonp",</h3>
+    <h2><a name="_Toc256000017"></a>2.6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var fm = new FormData($('form')[0]);
+      <br /> &nbsp;在new它的时候传入一个参数，参数要求传入表单元素（只能是DOM对象，不能是jQuery对象）</h2>
+    <h3>2.6.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000018"></a>contentType:
+      false,<br /> &nbsp; processData: false,&nbsp;&nbsp; 因为自身设置了参数和设置了请求报文头,</h3>
+    <h3><a name="_Toc256000019"></a>2.6.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      必须注意form表单的中name属性的名字必须和接口一致,如果参数不够用append(参数名,参数值)</h3>
+    <h1><a name="_Toc256000020"></a>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原生JS发ajax</h1>
+    <h2><a name="_Toc256000021"></a>3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get方式</h2>
+    <h3><a name="_Toc256000022"></a>3.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      1.创建XMLHttpRequest对象，建议变量名叫xhr---<br /> var xhr = new XMLHttpRequest();<br /> &nbsp;2.调用open方法，设置请求方式和请求路径&nbsp;
+      --参数1：请求方式 参数2：请求路径<br /> &nbsp;3.监听响应完成事件--&nbsp; xhr.onload = function(){}&nbsp;
+      /xhr.onreadystatechange=function(){<br /> &nbsp;if(xhr.readyState==4&amp;&amp;xhr.status==200){&nbsp;&nbsp; <br />
+      操作&nbsp;&nbsp; xhr.responseText&nbsp;&nbsp; ,注意JSON.parse<br /> &nbsp;&nbsp;&nbsp; }<br /> }&nbsp; <br />
+      4.xhr.send()</h3>
+    <h2><a name="_Toc256000023"></a>3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post方式</h2>
+    <h3><a name="_Toc256000024"></a>3.2.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      1.创建XMLHttpRequest对象，建议变量名叫xhr---<br /> var xhr = new XMLHttpRequest();<br />
+      &nbsp;2.调用open方法，设置请求方式和请求路径就可以!!!!<br /> &nbsp;3.监听响应完成事件--&nbsp; xhr.onload = function(){}&nbsp;
+      /xhr.onreadystatechange=function(){<br /> &nbsp;if(xhr.readyState==4&amp;&amp;xhr.status==200){&nbsp;&nbsp; <br />
+      操作&nbsp;&nbsp; xhr.responseText&nbsp;&nbsp; ,注意JSON.parse<br /> &nbsp;&nbsp;&nbsp; }<br /> }&nbsp; <br />
+      4.设置请求报文头&nbsp;&nbsp;&nbsp; xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');<br />
+      5.发请求&nbsp;&nbsp; xhr.send('参数')&nbsp; 多个参数之间也是用&amp;连接</h3>
+    <h2><a name="_Toc256000025"></a>3.3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原生JS使用 FromData</h2>
+    <h3>3.3.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a name="_Toc256000026"></a>var fm = new
+      FormData(form);</h3>
+    <h3><a name="_Toc256000027"></a>3.3.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 不需要设置请求报文头,xhr.send(fm)</h3>
+    <h2><a name="_Toc256000028"></a>3.4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原生发ajax封装</h2>
+    <p>&nbsp;</p>
+    <p>不要点开</p>
+    <p>&nbsp;</p>
+    <h3>3.4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a name="_Toc256000029"></a>var
+      my$ = {}<br /> <br /> &nbsp;&nbsp;&nbsp; /* get请求方法 */<br /> &nbsp;&nbsp;&nbsp; my$.get = function (params)
+      {<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var xhr = new XMLHttpRequest()<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      if (params.data) {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.url += "?" + params.data<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.open('get', params.url)<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.onreadystatechange = function () {<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {<br /> <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.success(xhr.responseText)<br /> <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.send()<br /> &nbsp;&nbsp;&nbsp; }<br /> <br /> &nbsp;&nbsp;&nbsp; /* post请求
+      */<br /> &nbsp;&nbsp;&nbsp; my$.post = function (params) {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var xhr = new
+      XMLHttpRequest()<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.open('post', params.url)<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.onreadystatechange = function () {<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {<br /> <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.success(xhr.responseText)<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');<br />
+      <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.send(params.data)<br /> &nbsp;&nbsp;&nbsp; }<br /> <br />
+      &nbsp;&nbsp;&nbsp; my$.ajax = function (params) {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var xhr = new
+      XMLHttpRequest()<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* 全部转换成小写,避免 */<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      params.type = (params.type).toLowerCase()<br /> <br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (params.type ==
+      'get' &amp;&amp; params.data) {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params.url += "?" +
+      params.data<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      xhr.open(params.type, params.url)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      xhr.onreadystatechange = function () {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xhr.readyState == 4
+      &amp;&amp; xhr.status == 200) {<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      params.success(xhr.responseText)<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (params.type == 'post') {<br />
+      <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.setRequestHeader('Content-type',
+      'application/x-www-form-urlencoded');<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      xhr.send(params.data)<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {<br /> <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xhr.send()<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> <br />
+      &nbsp;&nbsp;&nbsp; }</h3>
+    <h1><a name="_Toc256000030"></a>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get和post的区别</h1>
+    <h2><a name="_Toc256000031"></a>4.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get和post肉眼可见的区别是：</h2>
+    <h3>4.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000032"></a>get请求会把非参数放到网址上传递<br />
+      post请求不会放到网址上传递&nbsp; （它放到请求体里传递）</h3>
+    <h1><a name="_Toc256000033"></a>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 请求报文：</h1>
+    <h2><a name="_Toc256000034"></a>5.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      其实就是浏览器发请求给服务器时带的所有的信息：请求方式、请求的参数啊、请求时的软件环境等</h2>
+    <h1><a name="_Toc256000035"></a>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 模板引擎</h1>
+    <h2><a name="_Toc256000036"></a>6.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; art-template.js</h2>
+    <h3><a name="_Toc256000037"></a>6.1.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 用法</h3>
+    <h4>1.导入art-template.js</h4>
+    <h4>2.准备一个模板<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1
+      用script标签准备模板<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2
+      必须给这个标签加一个id，方便找到这个模板<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.3
+      必须给type属性，而且type属性不能是text/javascript</h4>
+    <h4>3.使用template函数来根据模板生成字符串----调用template('id',对象或数组);</h4>
+    <h3><a name="_Toc256000038"></a>6.1.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; each&nbsp; 循环</h3>
+    <h4>each 后面可以传本身有的对象, $value可以缩写成v</h4>
+    <h4>$value&nbsp; 值可以继续点属性 $value.name</h4>
+    <h4>$index下标</h4>
+    <h4>if语句 elseif&nbsp;&nbsp; {{if}}&nbsp; {{/if}}</h4>
+    <h1><a name="_Toc256000039"></a>7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 图灵机器人V1.0api地址</h1>
+    <h2>7.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+        href="http://www.tuling123.com/openapi/api">http://www.tuling123.com/openapi/api</a><a name="_Toc256000040"></a>
+    </h2>
+    <h2>7.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000041"></a>data:{
+      key:'2162602fd87240a8b7bba7431ffd379b', info:msg },</h2>
+    <h1><a name="_Toc256000042"></a>8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 设置图片预览</h1>
+    <h2>8.1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a name="_Toc256000043"></a>var url = URL.createObjectURL(
+      this.files[0] );----表单的file</h2>
+    <h2><a name="_Toc256000044"></a>8.2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $('.preview').attr('src',url);</h2>
+  </div>
 
   <div class="top">
     <h3>TOP</h3>
   </div>
+
+  <footer>
+    <img src="./images/footer-slog.png" alt="" srcset="">
+
+  </footer>
   <script src="./js/jquery-1.12.4.min.js"></script>
   <script src="./js/markdown-it.min.js"></script>
   <script>
