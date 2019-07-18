@@ -12,26 +12,27 @@
     /* 点击更换背景图片-end */
 
     /* 头部我的网页动画 */
-    function autoGRWY() {
-      var index = 0
-      var width = $('.no-swiper-slide').eq(1).width();
+
+    function autoPlayGRWy() {
+      var grwy_index = 0;
+      $('.no-swiper-slide').eq(0).clone(true).appendTo($('.no-swiper-wrapper'))
       setInterval(function () {
-        if (index == $('.no-swiper-slide').length - 1) {
-          index = 0;
-          $('.no-swiper-wrapper').css({
-            left: -index * width,
-          })
-        } else {
-          index++
-        }
+        grwy_index++
         $('.no-swiper-wrapper').animate({
-          left: -index * width,
-        }, 1000)
-      }, 2000)
+          left: -grwy_index * $('.no-swiper-slide').eq(1).width(),
+        })
+        if (grwy_index == $('.no-swiper-slide').length) {
+          grwy_index = 0
+          $('.no-swiper-wrapper').stop(true).css({
+            left: -grwy_index * $('.no-swiper-slide').eq(1).width(),
+          })
+        }
+
+      }, 1000)
     }
-    autoGRWY()
 
-
+    autoPlayGRWy()
+    /* 头部我的网页动画-end */
 
 
     /* 导航栏按钮注册点击事件 */
