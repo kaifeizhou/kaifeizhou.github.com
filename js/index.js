@@ -147,8 +147,19 @@
     $('.wall').jaliswall({ item: '.article' });
 
     var imgList = $('.wall .article img')
+
+
+    /* 循环在外面已进入页面执行一次 */
+    for (var i = 0; i < imgList.length - 1; i++) {
+
+      if (imgList.eq(i).offset().top - $(document).scrollTop() < $(window).height()) {
+        imgList.eq(i)[0].src = imgList.eq(i).attr('data-original')
+      }
+
+    }
     // 解决图片懒加载bug
     $(document).scroll(function () {
+
       for (var i = 0; i < imgList.length - 1; i++) {
         if (imgList.eq(i)[0].src.indexOf('data:image/png;base64') != -1) {
 
@@ -173,11 +184,11 @@
       if ($('html').scrollTop() == 0) {
         return
       }
-     
+
       $('html').animate({
         scrollTop: 0,
       }, function () {
-     
+
       })
     })
 
